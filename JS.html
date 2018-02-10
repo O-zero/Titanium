@@ -1,0 +1,839 @@
+<html lang=eu>
+<head> <title>Javascript Example </title></head>
+<style>
+  body { background: url(http://altfast.ru/uploads/posts/2011-07/1311176758_rewalls.com-14737.jpg); }
+</style>
+<body>
+  <pre > <font style="color:#ffffff">
+  JavaScript  — мультипарадигменный язык программирования.
+  <p id="Example"> Проверка кнопки </p> </font>
+  <button onclick="exit">Синий </button>
+  <button onclick="style.color = 'red'">Красный </button>
+  <script>
+function sum(arg) {
+    var s = arg;
+    function rec(arg2) {
+  s += arg2;
+  return rec();
+}
+return rec;
+    }
+
+console.log(sum(0)(1)(2)(3)(4)(5))
+/*function runningAverage() {
+  var l = [];
+  let sum = 0;
+ return function(a) {
+   l.push(a);
+      sum +=+l[l.length-1];
+      return (sum/l.length).toFixed(1);
+ }
+}
+avg = runningAverage();
+console.log(avg(10));
+console.log(avg(11));
+console.log(avg(12));
+  /*function sum(a,b) {
+    if (b == undefined){
+    	return function(c) {
+      	return a + c;
+    	};
+    }
+  else {
+    return a+b
+  	}
+  }
+
+/*
+  multiplyAll = function(l) {
+      return function(n) {
+        let f = [];
+      	for (let i=0;i<l.length;i++)
+        	f[i] =l[i]*n;
+      return f
+      }
+    }
+
+
+  /*Object.toPairs = function(obj) {
+    var ans = [];
+    var i = 0;
+    for(let key in obj){
+        ans[i] = [];
+      ans[i].push(key);
+      ans[i].push(obj[key]);
+        i++;
+    }
+    return ans
+  }
+
+console.log(Object.toPairs({
+  this: 'is',
+  not: 'so',
+  hard: 'really o_O ?!',
+  a: 'xxx',
+  1: '-----'
+}))
+/*  console.reverse = function(arr) {
+
+return arr.split("").reverse().join("");
+}
+console.upperCase = function(ar) {
+  return ar.toUpperCase()
+}
+console.log(console.reverse('qwerty'));//ytrewq
+console.log(console.upperCase('qwerty'));//QWERTY
+/*
+  function Trim(c){
+    var ar ="lllHeloWorldLLL"
+    console.log(c)
+     var s = ar.split('');
+     for(i=0;i<c.length;i++){
+    while (s[0].toUpperCase() == c[i].toUpperCase() || s[0] == c[i])
+         s.splice(0,1)
+     while(s[s.length-1].toUpperCase() == c[i].toUpperCase() || s[s.length-1] == c[i])
+       s.splice(s.length-1,1)}
+    return s.join("")
+  }
+  console.log(Trim())
+
+
+
+
+
+
+  /*
+  // code...
+  var Singleton = function() {
+     var instance;
+
+     this.createInstance = function(){
+         var object = new Object();
+         return object;
+     }
+
+     return {
+         getInstance: function () {
+             if (!instance)
+                 instance = this.createInstance();
+
+             return instance;
+         }
+     };
+
+
+ this.run = function () {
+
+     var instance1 = Singleton.getInstance();
+     var instance2 = Singleton.getInstance();
+
+ }
+   }
+/*  var animal = {
+  eat: true,
+  drink: true,
+  walk: true,
+};
+
+var rabbit = {
+  jump: true,
+  drink: true,
+  eat: true,
+  __proto__: animal
+};
+const similarProperties = function (objIn) {
+  //do some stuff
+  var l = [];
+  var r = [];
+  for (let key in objIn)
+    if(objIn.__proto__.hasOwnProperty(key) && objIn.hasOwnProperty(key))
+      l.push(key);
+
+
+      /*for(let i = 0;i<objIn.length;i++)
+        for(let key1 in objIn.__proto__)
+        if(l[i] == key)
+        r.push(key)*/
+    /*    return l
+      }
+
+  console.log(similarProperties(rabbit))
+/*  const itSelfProperties = function (objIn) {
+      //do some stuff
+    var l = [];
+    for(let key in objIn)
+      if(!objIn.hasOwnProperty(key))
+        l.push(key);
+    return l
+  }
+
+
+/*  function Counter (value) {
+    // good luck;
+      this.value = 0;
+
+  }
+
+  Counter.prototype.increase = function() {
+      this.value +=1;
+  };
+
+  Counter.prototype.getValue = function() {
+      return this.value
+  };
+
+  Counter.prototype.reset = function() {
+      this.value = 0
+  };
+
+/*function Trim(c){
+  var s ="lllHelo MFlllll"
+var Cbegin = 0;
+var i = 0;
+while(~s.indexOf(c,i) || ~s.indexOf(c.toUpperCase(),i)){
+  Cbegin++;
+  i++;
+}
+
+  return Cbegin;
+}
+console.log(Trim('l'))
+
+
+
+
+/*function sortArgs(...arguments) {
+    // your code goes here
+  var b;
+  var l = [];
+  if (arguments[arguments.legth-1] === "asc")
+    b = true;
+  else
+    b = false;
+    console.log(b,arguments[arguments.length-1])
+  for (let i = 0;i<arguments.length-1;i++)
+    l.push(arguments[i]);
+    console.log(l)
+    if (b)
+  l.sort(function(first,second){
+    	return first - second
+  });
+  else
+  l.sort(function(first,second){
+      return second - first
+  });
+   return l
+}
+console.log(sortArgs(1, 2, 3,'asc'))
+
+/*  const executableFunctionsArguments = function () {
+    var l = [];
+  for (var i = 0;i<arguments.length;i++)
+    if (typeof(arguments[i]) == 'function')
+          l.push(arguments[i]())
+    return l
+  }
+  console.log(executableFunctionsArguments('12', () => {}, {}, 3))
+
+
+/*  function duplicateArgs() {
+      //Your code here. Good luck.
+    const n = arguments.length;
+    for(var i=0;i<n;i++)
+      for(var j=0;j<n;j++){
+        console.log(i,j)
+        if(arguments[i] == arguments[j] && j !=i )
+          return true
+        }
+    return false
+
+  }
+console.log(duplicateArgs(1,5,3,1))
+
+/*  function average() {
+    //TODO
+  if (arguments.length == 0)
+    return 0;
+    var sum = 0;
+    for (var i = 0;i<arguments.length;i++)
+      sum += arguments[i];
+    return sum/i;
+  };
+
+
+  /*const sumOf = function () {
+    //do some staff
+  var sum = 0;
+  for (let i = 0;i<arguments.length;i++)
+    if ( !isNaN(parseFloat(arguments[i])) && isFinite(arguments[i]))
+        sum +=+arguments[i];
+  return sum || false
+}
+
+
+  /*function flattenAndSort(array) {
+      //your code
+    if (array.length === 0)
+      return []
+array = array.join(',')
+array = array.split(',')
+array.sort(function(first, second) {
+  return first - second;
+});
+ for(let i = 0;i<array.length;i++)
+   if (array[i] === "")
+     array.splice(i,1);
+      return array;
+  }
+console.log(flattenAndSort([[],[1]]))
+/*  function flattenAndSort(array) {
+      //your code
+    if (array.length === 0)
+      return []
+array = array.join(',')
+array = array.split(',')
+array.sort(function(first, second) {
+  return first - second;
+});
+
+      return array;
+  }
+  console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]))
+
+
+  /*function orderWord(string){
+      //your code here
+    if (!string)
+      return "Invalid String!"
+   var l = string.split('');
+   console.log(l)
+    l.sort();
+    return l.join('')
+
+  }
+console.log(orderWord('Fuck u'))
+/*  function Counter(value){
+    var Value = value;
+  }
+
+  Counter.prototype.increase = function(value) {
+      value +=1
+    return value
+  };
+
+  Counter.prototype.getValue = function(value) {
+      return value;
+  };
+
+  Counter.prototype.reset = function(value) {
+      value = 0;
+    return value
+  };
+  var Cs = new Counter(2);
+  console.log(Cs.increase(0),Cs.getValue(1),Cs.increase(2),Cs.reset(3))
+
+/*function mergeArrays(a, b) {
+  var l  = []
+  for(var i = 0; i<Math.min(a.length,b.length);i++){
+      l.push(a[i]);
+      l.push(b[i]);
+  }
+  while(i<a.length){
+    l.push(a[i]);
+    i++
+  }
+  while(i<b.length){
+    l.push(b[i]);
+    i++
+  }
+    //your code
+    return l;
+}
+
+
+/*  function flattenAndSort(array) {
+    //your code
+ var  l = [];
+  l = l.concat(array)
+
+  l = l.join(',')
+
+  l = l.split(',')
+  l.sort(function(first, second) {
+    return first - second;
+  });
+  array = l.join(',')
+    return array.slice(1,array.length);
+}
+console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]))
+/*  function reverseArray(arr) {
+    // your code here
+  var i = 0;
+  var j = arr.length-1;
+  var tmp
+  while (i<j){
+    tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+    j--;i++;
+  }
+  return arr
+}
+
+/*  function combineArrayElements(arr) {
+    // your code here
+  var l = arr.concat();
+ console.log(l)
+l.splice(1,l.length-2);
+  return l.join('-')
+}
+console.log(combineArrayElements(['jade', 'stylus', 'gulp', 'pug']))
+  /*
+  function mergeArrays(a, b) {
+    var result = [];
+    var l = Math.min(a.length,b.length);
+    	for (var i = 0;i<l;i++)
+        if (i%2 == 0)
+          result.push(a[i]);
+    	else
+      	result.push(b[i]);
+    while (i<a.length)
+      result.push(a[i]);
+     while (i<b.length)
+      result.push(b[i]);
+      //your code
+
+      return result;
+  }
+
+  console.log(mergeArrays(['a', 'b', 'c', 'd', 'e'], [1, 2, 3, 4, 5]))
+
+
+  /*function solution(obj) {
+      //Write your code here
+    var l = [];
+    var i = 0;
+    var s = "";
+    for (let key in obj){
+      l.push(obj[key]);
+    }
+  l.sort(function(first, second) {
+    return first - second;
+  });
+    i = 0;
+    n = l.length;
+    console.log(l,n)
+    for (let j=0;j<n;j++){
+      for(let key in obj)
+        if (l[j] == obj[key])
+          l[j] = key;
+}
+s = l.join(', ');
+  return s.slice(0,s.length)
+  }
+  console.log(solution({
+    'Alex': 25,
+    'Max': 20,
+    'Denis': 35,
+    'Olga': 18
+}))
+
+
+
+
+
+/*  function removeOdd(arr) {
+    // your code here
+  const n = arr.length;
+  var i = 0;
+  while(i<n){
+    if (!arr[i]%2)
+      arr.splice(i,1);
+    i++
+  }
+  return arr
+}
+
+
+
+/*  function func(arr) {
+      // your code here
+    const n = arr.length;
+    var sum = 0;
+    var i = 0;
+    while(sum<=10){
+      if (i>n)
+        return 0
+      sum += arr[i];
+      i++
+    }
+    return i
+
+
+  }
+
+
+  /*function twoDimensionalArr(arr){
+    var sum = 0;
+    var l= arr.join(',')
+    var n = l.length;
+     for (let i = 0; i<n; i++){
+       if(!isNaN(l[i]))
+         sum += +l[i];
+         else if (l[i] !=",")
+           sum +=l[i];
+     }
+    return sum
+  }
+
+console.log(twoDimensionalArr([[1, 2, 3], [4, 5], [6]]))
+
+  /*function fillArray(num) {
+    // your code here
+  var i = 0;
+  var l = [];
+  while(i<num){
+     l[i] = ''
+    for(let j=1;j<=i+1;j++){
+    l[i] += 'x';
+    }
+  i++
+  }
+  return l
+
+  function fillArrayInt(num) {
+    // your code here
+    var i = 0;
+  var l = [];
+  while(i<num){
+     l[i] = ''
+    for(let j=1;j<=i+1;j++){
+    l[i] += i+1;
+    }
+  i++
+  }
+  return l
+}
+
+}
+  String.prototype.toCamelCase = function() {
+   var n = this.length;
+   var i = 1;
+   var ans = this[0].toUpperCase();
+   while (i<n)
+     if (this[i] !=' '){
+       ans +=this[i];
+       i++
+     }
+      else{
+         ans +=this[i+1].toUpperCase();
+      i +=2;}
+
+
+    return ans
+  }
+  console.log('foo Bar'.toCamelCase());
+/*  function checkObjects(first, second) {
+     //  your code here
+    var l = [];
+    var r = [];
+    var i = 0;
+    var sum = 0;
+    for (let key in first){
+      l.push(key);
+    	r.push(first[key]);
+    }
+    for (let key in second)
+      if (key == l[i]){
+        sum +=r[i] + second[key];
+        i++;
+      }
+      else
+        return false
+    return sum
+  }
+  /*
+  function sortObject(destination) {
+var sortedObj = {};
+  var l = [];
+  var i = 0;
+  var n = destination.length;
+    //  your code here
+  for (var key in destination){
+    l[i] = destination[key];
+    i++;
+  }
+l.sort(function(first, second) {
+  return first - second;
+});
+  i = 0;
+  Object.assign(sortedObj,destination);
+  for (key in sortedObj){
+    destination[key] = l[i]
+  i++;
+}
+
+    return sortedObj
+
+  a ="sSsssIaDeSSsbilSSsss"
+ c = 's'
+ var i = 0
+ var Cbegin = 0;
+ var Cend = 1;
+while(~a.indexOf(c,i) || ~a.indexOf(c.toUpperCase(),i)){
+  Cbegin++;
+  i++;
+}
+i = a.length-1;
+while(~a.lastIndexOf(c,i) || ~a.lastIndexOf(c.toUpperCase(),i)){
+Cend++;
+i--;
+}
+a = a.slice(Cbegin,a.length-Cend);
+return a;
+console.log(i,Cbegin,Cend)
+*/
+/*
+  var source = {
+    items: [
+      {A: 100},
+      {B: 120},
+      {C: 140}
+    ],
+    divideEqually: 35
+  };
+
+  var destination = {}
+
+  function putToDestination(source) {
+    //  your code here
+    for (var i in source){
+      if (typeof(i) === 'object'){
+    for (let key2 in i)
+       if (!destination.hasOwnProperty(key2))
+         Object.assign(destination,i);
+       }
+       if (!destination.hasOwnProperty(i))
+         Object.assign(destination,source);
+}
+
+    return destination
+  }
+console.log(source);
+console.log(putToDestination(source));
+/*  const solution = obj => Object.keys(obj).sort((a, b) => obj[a] - obj[b]).join(', ');
+
+
+
+      var c = arr[0].concat('-'+arr[arr.length-1]);
+
+  String.prototype.trim = function(c) {
+  // code...
+  var d = c.length;
+  var i = 0;
+  var Cbegin = 0;
+  var Cend   = 0;
+  while(a[i+1] == c || a[i+1] == c.toUpperCase)
+    Cbegin++
+
+}
+/*
+  function getObjectWithCircleAreasFunction(container) {
+    container.circlesAreas = {};
+      container.getCircleAreas = function(){
+       for (var circle in container.circles)
+        container.circlesAreas['name'] = Math.PI * Math.pow(circle,2);
+      }
+      return container;
+  }
+  function currentDay(day){
+  var week = {
+  '1' : 'mon',
+  '2' : 'tue',
+  '3' : 'wed',
+  '4' : 'thi',
+  '5' : 'fri',
+  '6' : 'sat',
+  '7' : 'sun'
+  };
+  return week[day];
+}
+  var d = week[5];
+  return week [day]
+}*/
+/*
+const insideOut = function (inObject) {
+    //do some stuff
+ var tmp;
+ var l = {};
+  for (let key in inObject){
+    l[key]= key;
+    console.log(key,l[key]);}
+  for (let d in l){
+    d = typeof(inObject[d]);
+    console.log(inObject[d],d)
+}
+  console.log(l)
+  return inObject
+}
+console.log(insideOut({
+    a: 12,
+    b: 'some_string',
+    c: () => {}
+}))*/
+/*
+function invertKeyValue(obj) {
+  // your code here
+  const insideOut = function (inObject) {
+    //do some stuff
+ var tmp
+ var l = {}
+  for (let key in inObject){
+    tmp = key;
+    key = inObject[key];
+    inObject[key] = tmp;
+    l [key] = inObject[key];
+    console.log(key,inObject[key])
+  }
+  for (let kess in l)
+  kess = inObject[kess]
+  return l
+}
+
+}
+console.log(insideOut({
+    a: 12,
+    b: 'some_string',
+    c: () => {},
+    d: 17,
+    f: 'sdsewq'
+}))
+/*var keys =  ['a', 'b', 'c', 'd','e'];
+var values = [1, 2, 3,4, 5];
+
+function createDict(keys, values){  //Сами сказали - делайте "велосипед". Хуже и не придумаешь
+ var l= keys.length;
+ var d= values.length;
+ if(d>l)
+   while(d != l){
+     values.pop();
+     d--;
+   }
+   var Dict = {};
+   var i = 0;
+Object.assign(Dict,keys);
+for (let r in Dict){
+  r=keys[i];
+
+  Dict[r] = values[i];
+  if (Dict[r] === undefined)
+    Dict[r] = null;
+  i++
+}
+for (let j=0;j<l;j++)
+delete Dict[j];
+  return Dict
+}
+
+   console.log( Dict)
+
+clonedGalaxy = Object.assign(galaxy.planets);
+return clonedGalaxy
+}
+console.log(cloneTheObject())
+// your code here
+/*
+function createDict(keys, values){
+  var l= keys.length;
+  var d= values.length;
+  if(d>l)
+    while(d != l)
+      values.pop();
+var Dict = {};
+for (var key in keys)
+  Dict[key] = keys[key];
+for (var l in Dict)
+  if (Dict[l] === undefined)
+    Dict[l]
+  Dict[l] = values;
+  return Dict
+
+function getObjectWithCircleAreasFunction(container) {    container.circlesAreas = {}; //Your Code    container.getCircleAreas = function() {      for(key in container.circles){        container.circlesAreas[key] = Math.pow(container.circles[key],2) * 3.14;      }       return container.circlesAreas;    }    return container;}
+
+
+  function preFizz(n) {
+    let s = "";
+	let F = "Fizz";
+  	let B = "Buzz"
+    //your code here
+    if
+ (n%3 == 0) s +=F;
+    if
+ (n%5 == 0)  s +=B
+     return s || n;
+}
+console.log(preFizz(641));
+
+
+console.log(autocomplete('ai', ['airplane','airport','apple','ball']));
+/*  var str = "Widget";
+
+  if (~str.indexOf("wid")) {
+    alert( 'совпадение есть!' );
+  }
+
+  function percentsFrom(number, percent) {
+  //Your code goes here
+
+  return number.toFixed(percent/Math.pow(100,percent))
+}
+
+
+console.log(percentsFrom(50, 1));
+
+/*  function findLongest(array){
+var n,l,max=0,a;
+n = array.length-1;
+for(let i=0;i<n;i++){
+l=array[i].toString(10);
+  if (l.length>max){
+    max = l.length;
+    a=array[i];
+  }
+}
+return a
+}
+
+console.log(findLongest([1,2,4,45,89,10]));
+
+
+/*
+  let str = "Hello";
+  str.something = 5;
+  alert(str.something); // ?
+var b =  prompt("Js is ready?","no") //вопрос через Алерт
+  alert("U said " + b) //console.log для консольки
+  var ls = 5; b= 5
+  document.write("5 + 5 = ",ls+b +"<br>"+Math.PI)
+
+  var apple = new Object();
+  apple.color = "red";
+  apple.size = "big";
+
+  apple.describe = function(){
+  return 'An apple is '+ this.color+' and '+this.size;
+}
+
+
+  console.log(apple.size);
+  document.write("<br>"+apple.describe())
+
+  var number = [1,2,3,4,5];
+  number.push(8);
+  for(var i=0; i<6;i++)
+  console.log(number[i]);
+
+*/
+  </script>
+</body>
+</html>
